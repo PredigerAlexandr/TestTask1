@@ -1,0 +1,29 @@
+﻿@using TestTask1.Models.Database
+@model TC
+@{
+    ViewData["Title"] = @Model.Name;
+}
+
+<h1>@Model.Name</h1>
+<div>
+    <h3>Наши расценки</h3>
+    <p>За килограмм плати @Model.CoefficientOfKilogram руйблей, за километр плати @Model.CoefficientOfKilometer, за кубический сантиметр плати @Model.CoefficientOfSize</p>
+</div>
+<h3>Наши заказы (отсортированные по дате)</h3>
+<ol class="list-group list-group-numbered">
+        @foreach(var item in Model.orders)
+        {
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold">Отправитель: <b>@item.FirstName @item.SurName</b><br />
+                    Откуда: <b>@item.FirstPlace</b> <br />
+                    Куда: <b>LastPlace</b></div>
+                Расстояние: <b>@item.Distance км</b>
+            </div>
+            <span class=""> Цена: <b>@item.Price р</b> </span>
+        </li>
+        }
+
+    </ol>
+    }
+

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace TestTask1.Models.Database
@@ -22,7 +23,13 @@ namespace TestTask1.Models.Database
 
         public double Size { get; set; }
 
-        public int Price { get; set; }
+        public double Price { get; set; }
+
+        public int Distance { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime Date { get; set; }
 
         public int TcId { get; set; }
 

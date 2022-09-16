@@ -1,7 +1,8 @@
 ﻿@using TestTask1.Models.ViewModels
-@model OrderViewModel
+@using System.ComponentModel.DataAnnotations;
+@model OrderViewModel;
 @{
-    ViewData["Title"] = "AllCalculator";
+    ViewData["Title"] = "Общий расчёт";
 }
 
 <h1>Расчитать Стоимость</h1>
@@ -11,30 +12,37 @@
                 <div class="form-group">
                     <label asp-for="FirstName" class="control-label"></label>
                     <input asp-for="FirstName" class="form-control" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="SurName" class="control-label"></label>
                     <input asp-for="SurName" class="form-control" />
+                    <span asp-validation-for="SurName" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="FirstPlace" class="control-label"></label>
                     <input asp-for="FirstPlace" class="form-control" />
+                    <span asp-validation-for="FirstPlace" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="LastPlace" class="control-label"></label>
                     <input asp-for="LastPlace" class="form-control" />
+                    <span asp-validation-for="LastPlace" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="Weight" class="control-label"></label>
                     <input asp-for="Weight" class="form-control" />
+                    <span asp-validation-for="Weight" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="Size" class="control-label"></label>
                     <input asp-for="Size" class="form-control" />
+                    <span asp-validation-for="Size" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="Phone" class="control-label"></label>
                     <input asp-for="Phone" class="form-control" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
                 </div>
                  <div class="form-group">
                     <input type="submit" value="Расчитать" class="btn btn-primary" />
@@ -42,5 +50,22 @@
             </form>
         </div>
     </div>
-<h1>@Model</h1>
+    @if (ViewBag.Orders != null)
+    {
+    <ol class="list-group list-group-numbered">
+        @foreach(var item in ViewBag.Orders)
+        {
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold"><b>@item.Tc.Name</b></div>
+                Расстояние: @item.Distance км
+            </div>
+            <span class=""><a asp-controller="TransportСompany" asp-action="TcShow" asp-all-route-data='new Dictionary<string,string> { { "FirstName", @item.FirstName }, {"SurName", @item.SurName }, 
+                { "FirstPlace", @item.FirstPlace },{"LastPlace", @item.LastPlace},{"Phone", Convert.ToString(@item.Phone)},
+                {"Weight", Convert.ToString(@item.Weight)}, {"Size",Convert.ToString(@item.Size)}, {"Disnance",Convert.ToString(@item.Distance)},
+                {"Company",Convert.ToString(@item.Tc.Id)}, {"Price",Convert.ToString(@item.Price)}}'>@item.Price р</a></span>
+        </li>
+        }
 
+    </ol>
+    }
