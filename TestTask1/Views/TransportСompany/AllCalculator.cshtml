@@ -62,7 +62,7 @@
             </div>
             <span class=""><a asp-controller="TransportСompany" asp-action="TcShow" asp-all-route-data='new Dictionary<string,string> { { "FirstName", @item.FirstName }, {"SurName", @item.SurName }, 
                 { "FirstPlace", @item.FirstPlace },{"LastPlace", @item.LastPlace},{"Phone", Convert.ToString(@item.Phone)},
-                {"Weight", Convert.ToString(@item.Weight)}, {"Size",Convert.ToString(@item.Size)}, {"Disnance",Convert.ToString(@item.Distance)},
+                {"Weight", Convert.ToString(@item.Weight)}, {"Size",Convert.ToString(@item.Size)}, {"Distance",Convert.ToString(@item.Distance)},
                 {"Company",Convert.ToString(@item.Tc.Id)}, {"Price",Convert.ToString(@item.Price)}}'>@item.Price р</a></span>
         </li>
         }

@@ -22,7 +22,8 @@ namespace TestTask1.Controllers
 
         public IActionResult Index()
         {
-
+            TC tc = db.Transport_companies.FirstOrDefault(t => t.Name == "Энергия");
+            List<Order> orders = tc.orders;
             return View();
         }
 

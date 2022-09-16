@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TestTask1.Migrations
 {
@@ -35,9 +36,10 @@ namespace TestTask1.Migrations
                     LastPlace = table.Column<string>(nullable: true),
                     Weight = table.Column<double>(nullable: false),
                     Size = table.Column<double>(nullable: false),
-                    Price = table.Column<int>(nullable: false),
-                    TKId = table.Column<int>(nullable: false),
-                    TcId = table.Column<int>(nullable: true)
+                    Price = table.Column<double>(nullable: false),
+                    Distance = table.Column<int>(nullable: false),
+                    Date = table.Column<DateTime>(nullable: false),
+                    TcId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -47,7 +49,7 @@ namespace TestTask1.Migrations
                         column: x => x.TcId,
                         principalTable: "Transport_companies",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
@@ -58,7 +60,7 @@ namespace TestTask1.Migrations
             migrationBuilder.InsertData(
                 table: "Transport_companies",
                 columns: new[] { "Id", "CoefficientOfKilogram", "CoefficientOfKilometer", "CoefficientOfSize", "Name" },
-                values: new object[] { 2, 1.5, 7.0, 7.0, "СДЕК" });
+                values: new object[] { 2, 1.5, 7.0, 7.0, "СДЭК" });
 
             migrationBuilder.InsertData(
                 table: "Transport_companies",

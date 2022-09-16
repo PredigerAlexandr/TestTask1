@@ -105,7 +105,7 @@ namespace TestTask1.Migrations
                             CoefficientOfKilogram = 1.5,
                             CoefficientOfKilometer = 7.0,
                             CoefficientOfSize = 7.0,
-                            Name = "СДЕК"
+                            Name = "СДЭК"
                         },
                         new
                         {

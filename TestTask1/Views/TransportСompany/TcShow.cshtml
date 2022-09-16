@@ -10,8 +10,9 @@
     <p>За килограмм плати @Model.CoefficientOfKilogram руйблей, за километр плати @Model.CoefficientOfKilometer, за кубический сантиметр плати @Model.CoefficientOfSize</p>
 </div>
 <h3>Наши заказы (отсортированные по дате)</h3>
-<ol class="list-group list-group-numbered">
-        @foreach(var item in Model.orders)
+    @if(ViewBag.Orders != null)
+    {<ol class="list-group list-group-numbered">
+        @foreach(var item in ViewBag.Orders)
         {
         <li class="list-group-item d-flex justify-content-between align-items-start">
             <div class="ms-2 me-auto">
@@ -21,9 +22,12 @@
                 Расстояние: <b>@item.Distance км</b>
             </div>
             <span class=""> Цена: <b>@item.Price р</b> </span>
+            <span class=""> Дата: <b>@item.Date</b> </span>
         </li>
         }
 
     </ol>
     }
+<a asp-controller="TransportСompany" asp-action="ExportExel" asp-route-tcId="@Model.Id">Получить Exel-таблицу</a>
+    
 

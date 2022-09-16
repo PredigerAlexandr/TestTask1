@@ -50,7 +50,7 @@ namespace TestTask1
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Transport—ompany}/{action=AllCalculator}/{id?}");
             });
         }
     }

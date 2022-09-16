@@ -19,7 +19,7 @@ namespace TestTask1.Models.Database
                 {
                     //задумка в том, что Компанией Энергия выгоднее отправлять на длинные дистанции, компанией Сдек тяжёлые товары, а компанией ПЭК объёмный товары (за счёт коэффициентов)
                 new TC {Id =1, Name="Энергия", CoefficientOfKilometer=1.5, CoefficientOfKilogram=7, CoefficientOfSize=7},
-                new TC {Id = 2, Name="СДЕК", CoefficientOfKilometer=7, CoefficientOfKilogram=1.5, CoefficientOfSize=7},
+                new TC {Id = 2, Name="СДЭК", CoefficientOfKilometer=7, CoefficientOfKilogram=1.5, CoefficientOfSize=7},
                 new TC {Id =3, Name="ПЭК", CoefficientOfKilometer=7, CoefficientOfKilogram=7, CoefficientOfSize=1.5}
                 });
         }
